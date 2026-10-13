@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><span class="logo">🔍 Age Detector</span></header>
+
+    <main>
+      <div class="card">
+        <h1>Detect Age from Photo</h1>
+        <p class="subtitle">Upload a photo or use your camera</p>
+
+        <!-- Toggle -->
+        <div class="toggle">
+          <button class="toggle-btn active" onclick="switchMode('upload', this)">📁 Upload</button>
+          <button class="toggle-btn"        onclick="switchMode('camera', this)">📷 Camera</button>
+        </div>
+
+        <!-- Upload -->
+        <div id="upload-mode">
+          <label class="file-label">
+            Click to choose an image
+            <input type="file" accept="image/*" onchange="onFile(this)" />
+          </label>
+        </div>
+
+        <!-- Camera -->
+        <div id="camera-mode" class="hidden">
+          <video id="video" autoplay playsinline></video>
+          <button class="capture-btn" onclick="capture()">📸 Capture</button>
+        </div>
+
+        <!-- Shared preview + hidden canvas -->
+        <img id="preview" class="preview hidden" />
+        <canvas id="canvas" class="hidden"></canvas>
+
+        <button id="detect-btn" onclick="detectAge()" disabled>Detect Age</button>
+        <div id="result" class="result hidden"></div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
