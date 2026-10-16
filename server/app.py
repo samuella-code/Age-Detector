@@ -1,12 +1,19 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import requests, base64
+import requests
+import base64
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).with_name(".env"))
 
 app = Flask(__name__)
 CORS(app)
 
-RAPIDAPI_KEY = "afa0cc7fb9mshcedbb83da238de6p1ad517jsnffd83bf958f1"
-IMGBB_KEY    = "7f28b8e40a0732df3111f4f447baba4f"  # get free key at api.imgbb.com
+RAPIDAPI_KEY = os.environ["RAPIDAPI_KEY"]
+IMGBB_KEY = os.environ["IMGBB_KEY"]
+
 
 @app.route("/detect-age", methods=["POST"])
 def detect_age():
@@ -27,6 +34,7 @@ def detect_age():
         verify=False,
     )
     return jsonify(result.json())
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

@@ -1,10 +1,12 @@
 # Age Detector
 
-A simple age detector app. Paste an image URL → the API estimates the person's age.
+Age Detector is a lightweight web application that estimates a person’s age from an uploaded image or image URL. The project combines a Flask backend and a simple frontend interface, allowing users to submit an image, send it to an external age-detection API, and view the estimated result directly in the browser.
+
+This app demonstrates how to build a full-stack AI-powered utility using Python on the server side and JavaScript on the client side. It is ideal for learning how to connect a frontend form to a backend service, forward requests to third-party APIs, and display results in a user-friendly interface.
 
 ## Project Structure
 
-```
+```sh
 Age-Detector/
 ├── server/
 │   ├── app.py            ← Python Flask server
@@ -18,9 +20,10 @@ Age-Detector/
 ## How to Run
 
 ### 1. Get your API Key
-- Go to [rapidapi.com](https://rapidapi.com)
-- Search **"Age Detector"** by SmartClick → Subscribe (free tier)
-- Copy your API key
+
+* Go to [rapidapi.com](https://rapidapi.com)
+* Search **"Age Detector"** by SmartClick → Subscribe (free tier)
+* Copy your API key
 
 ### 2. Start the Server
 
@@ -37,7 +40,7 @@ Open `client/index.html` in your browser.
 
 ## How It Works
 
-```
+```md
 Browser → POST /detect-age → Flask Server → RapidAPI → age result back
 ```
 
